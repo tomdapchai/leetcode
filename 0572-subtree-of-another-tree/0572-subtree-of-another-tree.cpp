@@ -28,6 +28,8 @@ public:
     }
     bool result = false;
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if (result)
+            return true;
         if (root == nullptr)
             return false;
         result = result || (isSameTree(root, subRoot) || isSameTree(root->left, subRoot) || isSameTree(root->right, subRoot)); 
