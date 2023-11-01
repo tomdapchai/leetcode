@@ -17,18 +17,20 @@ auto init = [](){
 }();
 class Solution {
 public:
-    vector<int> result;
-    vector<int> inOrder(TreeNode *root) {
-        if (root != nullptr){
-            inOrder(root->left);
-            result.push_back(root->val);
-            inOrder(root->right);
-        }
-        vector<int> temp(result.begin(), result.end());
-        return temp;
-    }
     int kthSmallest(TreeNode* root, int k) {
-        vector<int> test = inOrder(root);
-        return test[k - 1];
+        stack<TreeNode *> st;
+        TreeNode *curr = root;
+        vector<int> res;
+        while (res.size() < k) {
+            while (curr != nullptr) {
+                st.push(curr);
+                curr = curr->left;
+            }
+            curr = st.top();
+            st.pop();
+            res.push_back(curr->val);
+            curr = curr->right;
+        }
+        return res.back();
     }
 };
