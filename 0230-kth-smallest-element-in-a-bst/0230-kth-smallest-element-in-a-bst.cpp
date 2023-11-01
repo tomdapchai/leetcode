@@ -9,6 +9,12 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+auto init = [](){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    return 0;
+}();
 class Solution {
 public:
     vector<int> result;
